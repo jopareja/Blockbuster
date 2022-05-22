@@ -5,10 +5,8 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 private const val BASE_URL = "https://api.themoviedb.org/3/"
-private const val API_KEY = "268eca7ce3ecdeb900e477ba297a3587"
 
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
@@ -18,10 +16,12 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ApiService {
-    @GET("movie/popular")
-    fun getPopularMovies(@Query("api_key") apiKey: String = API_KEY): List<Movie>
+    //suspend so the method getPopularMovies gets called in a coroutine
+    @GET("movie/popular?api_key=268eca7ce3ecdeb900e477ba297a3587")
+    suspend fun getPopularMovies(): List<Movie>
 }
 
+// My Api will use Retrofit's services
 object Api {
     val retrofitService : ApiService by lazy { retrofit.create(ApiService::class.java) }
 }
