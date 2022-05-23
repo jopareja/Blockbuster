@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import com.example.blockbuster.R
 import com.example.blockbuster.databinding.MainFragmentBinding
+
 
 class MainFragment : Fragment() {
 
@@ -17,15 +20,20 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
-        binding = MainFragmentBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //This is where the UI will get automatically updated with LiveData
-        viewModel.requestStatus.observe(viewLifecycleOwner)
-        { currentStatus -> binding.popularMoviesTitle.text = currentStatus }
-    }
 
+        // Set the viewModel for data binding - this allows the bound layout access
+        // to all the data in the VieWModel
+        binding.viewModel = viewModel
+
+        // Specify the fragment view as the lifecycle owner of the binding.
+        // This is used so that the binding can observe LiveData updates
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        // Setup a click listener for movies pictures.
+    }
 }

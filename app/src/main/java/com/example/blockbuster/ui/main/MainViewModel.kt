@@ -27,7 +27,7 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val listResult = Api.retrofitService.getPopularMovies()
-                _requestStatus.value = listResult.size.toString()
+                _requestStatus.value = "Success: ${listResult.size} Movies retrieved"
             } catch (e:Exception) {
                 _requestStatus.value = "Failure: ${e.message}"
             }
