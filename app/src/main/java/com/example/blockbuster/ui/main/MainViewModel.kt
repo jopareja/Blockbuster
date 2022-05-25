@@ -17,15 +17,15 @@ class MainViewModel : ViewModel() {
     val movies: LiveData<List<Movie>> = _movies
 
     init {
-        updateMovies()
+        updateMovies(noPage = 1)
     }
 
 
     // Update List of Movies with Retrofit's getPopularMovies Information
-    private fun updateMovies() {
+    fun updateMovies(noPage : Int) {
         //Launching Coroutine
         viewModelScope.launch {
-            val popularMovieRequest = Api.retrofitService.getPopularMovies(page = 1)
+            val popularMovieRequest = Api.retrofitService.getPopularMovies(noPage)
             try {
                 val popularMovieResponse = popularMovieRequest.body()
                 val popularMovies = popularMovieResponse?.results
