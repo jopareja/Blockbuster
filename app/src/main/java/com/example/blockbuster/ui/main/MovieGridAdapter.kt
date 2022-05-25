@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.example.blockbuster.R
 import com.example.blockbuster.databinding.GridViewItemBinding
 import com.example.blockbuster.network.Movie
 
@@ -26,6 +27,8 @@ class MovieGridAdapter : ListAdapter<Movie, MovieGridAdapter.MovieViewHolder>(Di
         fun bind(movie: Movie) {
             Glide.with(itemView).load("https://image.tmdb.org/t/p/w185${movie.imgSrcUrl}")
                 .transform(CenterCrop())
+                .placeholder(R.drawable.loading_animation)
+                .error(R.drawable.ic_broken_image)
                 .into(binding.movieImage)
             binding.executePendingBindings()
         }
