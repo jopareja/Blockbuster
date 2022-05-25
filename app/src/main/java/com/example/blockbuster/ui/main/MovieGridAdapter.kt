@@ -25,6 +25,7 @@ class MovieGridAdapter : ListAdapter<Movie, MovieGridAdapter.MovieViewHolder>(Di
 
     class MovieViewHolder(private var binding: GridViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) {
+            binding.movieName.text = movie.title
             Glide.with(itemView).load("https://image.tmdb.org/t/p/w185${movie.imgSrcUrl}")
                 .transform(CenterCrop())
                 .placeholder(R.drawable.loading_animation)
