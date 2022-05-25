@@ -8,6 +8,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 private const val BASE_URL = "https://api.themoviedb.org/3/"
 
@@ -21,7 +22,9 @@ private val retrofit = Retrofit.Builder()
 interface ApiService {
     //suspend so the method getPopularMovies gets called in a coroutine
     @GET("movie/popular?api_key=268eca7ce3ecdeb900e477ba297a3587")
-    suspend fun getPopularMovies(): Response<MoviesFirstResponse>
+    suspend fun getPopularMovies(
+        @Query("page") page: Int
+    ): Response<MoviesFirstResponse>
 }
 
 // My Api will use Retrofit's services

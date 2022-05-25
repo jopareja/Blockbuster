@@ -25,12 +25,12 @@ class MainViewModel : ViewModel() {
     private fun updateMovies() {
         //Launching Coroutine
         viewModelScope.launch {
-            val popularMovieRequest = Api.retrofitService.getPopularMovies()
+            val popularMovieRequest = Api.retrofitService.getPopularMovies(page = 1)
             try {
                 val popularMovieResponse = popularMovieRequest.body()
                 val popularMovies = popularMovieResponse?.results
-                //_requestStatus.value = "Success: ${popularMovies?.size} Movies retrieved"
-                _requestStatus.value = "${popularMovies!!}"
+                _movies.value = popularMovies!!
+                _requestStatus.value = "Success"
             } catch (e:Exception) {
                 _requestStatus.value = "Failure"
             }

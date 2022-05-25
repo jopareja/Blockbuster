@@ -21,6 +21,8 @@ class MainFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
+        //binding = DataBindingUtil.inflate(inflater, R.layout.grid_view_item, container, false)
+        binding.photosGrid.adapter = MovieGridAdapter()
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
