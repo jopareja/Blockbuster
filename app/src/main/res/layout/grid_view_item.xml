@@ -24,7 +24,6 @@
                 android:layout_height="172dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
-                app:imageUrl="@{photo.imgSrcUrl}"
                 tools:src="@tools:sample/backgrounds/scenic"
                 android:contentDescription="@string/movie_poster" />
             <TextView
