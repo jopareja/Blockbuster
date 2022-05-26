@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.blockbuster.R
 import com.example.blockbuster.databinding.MainFragmentBinding
 
-const val TAG = "MainFragment"
+
 class MainFragment : Fragment() {
 
     //Connect our UI Fragment with our UI Data Holder
@@ -21,16 +21,18 @@ class MainFragment : Fragment() {
 
     private lateinit var  binding: MainFragmentBinding
 
-    private lateinit var popularMoviesLayoutMgr : GridLayoutManager
+    private lateinit var recyclerViewLayoutMgr : GridLayoutManager
 
     private var popularMoviesPage = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
+
         binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
-        popularMoviesLayoutMgr = binding.photosGrid.layoutManager as GridLayoutManager
-        binding.photosGrid.adapter = MovieGridAdapter()
-        fetchOnScrollListener()
+        recyclerViewLayoutMgr = binding.photosGrid.layoutManager as GridLayoutManager
+
+        initRecyclerView()
+        recyclerViewOnScrollListener()
         return binding.root
     }
 
@@ -39,18 +41,18 @@ class MainFragment : Fragment() {
 
         // this allows the bound layout access to all the data in the VieWModel
         binding.viewModel = viewModel
-
         // This is used so that the binding can observe LiveData updates
         binding.lifecycleOwner = viewLifecycleOwner
-
-        // Setup a click listener for movies pictures.
     }
 
-    private fun fetchOnScrollListener() {
+    private fun initRecyclerView() {
+        binding.photosGrid.adapter = MovieGridAdapter()
+    }
+
+    private fun recyclerViewOnScrollListener() {
         binding.photosGrid.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                val lastVisibleItem = popularMoviesLayoutMgr.findLastCompletelyVisibleItemPosition() + 1
-                //Log.d(TAG, "LastItemV ${popularMoviesLayoutMgr.findLastCompletelyVisibleItemPosition() + 1}")
+                val lastVisibleItem = recyclerViewLayoutMgr.findLastCompletelyVisibleItemPosition() + 1
 
                 if (lastVisibleItem >= 19) {
                     binding.photosGrid.removeOnScrollListener(this)
