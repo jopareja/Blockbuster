@@ -30,7 +30,7 @@
             app:argType="string" />
         <argument
             android:name="popularity"
-            app:argType="java.lang.Double" />
+            app:argType="float" />
         <argument
             android:name="overview"
             app:argType="string" />

@@ -2,6 +2,7 @@ package com.example.blockbuster.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -21,8 +22,6 @@ class MovieGridAdapter : ListAdapter<Movie, MovieGridAdapter.MovieViewHolder>(Di
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val moviePoster = getItem(position)
         holder.bind(moviePoster)
-
-        // Assigns a [OnClickListener] to the [ViewHolder]
     }
 
     class MovieViewHolder(private var binding: GridViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -34,7 +33,15 @@ class MovieGridAdapter : ListAdapter<Movie, MovieGridAdapter.MovieViewHolder>(Di
                 .error(R.drawable.ic_broken_image)
                 .into(binding.movieImage)
             binding.executePendingBindings()
+            binding.cardView.setOnClickListener {
+                val action = MainFragmentDirections.actionMainFragmentToMovieDetailFragment(
+                    backdrop = movie.backdrop, poster = movie.imgSrcUrl, title = movie.title,
+                    date = movie.releaseDate, popularity = movie.popularity, overview = movie.overview
+                )
+                binding.cardView.findNavController().navigate(action)
+            }
         }
+
     }
 
     companion object DiffCallBack : DiffUtil.ItemCallback<Movie>() {
