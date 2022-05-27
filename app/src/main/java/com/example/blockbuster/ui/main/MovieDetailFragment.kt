@@ -10,7 +10,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.example.blockbuster.R
 import com.example.blockbuster.databinding.MovieDetailFragmentBinding
-import java.text.DecimalFormat
 
 
 class MovieDetailFragment : Fragment() {

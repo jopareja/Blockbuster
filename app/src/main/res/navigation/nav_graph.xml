@@ -18,10 +18,12 @@
         android:label="MovieDetailFragment" >
         <argument
             android:name="backdrop"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="poster"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="title"
             app:argType="string" />

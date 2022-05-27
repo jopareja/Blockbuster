@@ -9,7 +9,7 @@ data class Movie(
     val title: String,
     val overview: String,
     @Json(name = "release_date") val releaseDate: String,
-    @Json(name = "poster_path") val imgSrcUrl: String,
-    @Json(name = "backdrop_path") val backdrop: String,
+    @Json(name = "poster_path") val imgSrcUrl: String?,
+    @Json(name = "backdrop_path") val backdrop: String?,
     @Json(name = "vote_average") val rating: Float
 )
