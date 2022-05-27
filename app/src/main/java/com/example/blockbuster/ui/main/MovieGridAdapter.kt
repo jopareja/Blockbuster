@@ -13,14 +13,16 @@ import com.example.blockbuster.network.Movie
 
 
 class MovieGridAdapter : ListAdapter<Movie, MovieGridAdapter.MovieViewHolder>(DiffCallBack) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-    : MovieGridAdapter.MovieViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         return MovieViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
-    override fun onBindViewHolder(holder: MovieGridAdapter.MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val moviePoster = getItem(position)
         holder.bind(moviePoster)
+
+        // Assigns a [OnClickListener] to the [ViewHolder]
     }
 
     class MovieViewHolder(private var binding: GridViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -46,4 +48,3 @@ class MovieGridAdapter : ListAdapter<Movie, MovieGridAdapter.MovieViewHolder>(Di
 
     }
 }
-//.load("https://image.tmdb.org/t/p/w185${movie.posterPath}")

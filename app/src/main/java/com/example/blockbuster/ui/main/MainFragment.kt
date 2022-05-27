@@ -1,7 +1,6 @@
 package com.example.blockbuster.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +18,8 @@ class MainFragment : Fragment() {
     //Connect our UI Fragment with our UI Data Holder
     private val viewModel: MainViewModel by viewModels()
 
-    private lateinit var  binding: MainFragmentBinding
+    private var  _binding: MainFragmentBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var recyclerViewLayoutMgr : GridLayoutManager
 
@@ -28,7 +28,7 @@ class MainFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
         recyclerViewLayoutMgr = binding.photosGrid.layoutManager as GridLayoutManager
 
         initRecyclerView()
