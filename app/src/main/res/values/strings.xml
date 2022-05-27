@@ -5,6 +5,6 @@
     <string name="movie_name">A Movie Title</string>
     <string name="movie_wallpaper">Movie Wallpaper</string>
     <string name="star_logo">Star Logo</string>
-    <string name="popularity">Popularity: %d</string>
+    <string name="rating">Rating: %s</string>
     <string name="tools_overview">The film follows Homer Simpson, who irresponsibly pollutes the lake in Springfield, causing the Environmental Protection Agency (EPA) to imprison the town under a giant glass dome</string>
 </resources>

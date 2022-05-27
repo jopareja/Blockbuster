@@ -29,7 +29,7 @@
             android:name="date"
             app:argType="string" />
         <argument
-            android:name="popularity"
+            android:name="rating"
             app:argType="float" />
         <argument
             android:name="overview"

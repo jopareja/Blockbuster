@@ -36,7 +36,7 @@ class MovieGridAdapter : ListAdapter<Movie, MovieGridAdapter.MovieViewHolder>(Di
             binding.cardView.setOnClickListener {
                 val action = MainFragmentDirections.actionMainFragmentToMovieDetailFragment(
                     backdrop = movie.backdrop, poster = movie.imgSrcUrl, title = movie.title,
-                    date = movie.releaseDate, popularity = movie.popularity, overview = movie.overview
+                    date = movie.releaseDate, rating = movie.rating, overview = movie.overview
                 )
                 binding.cardView.findNavController().navigate(action)
             }
