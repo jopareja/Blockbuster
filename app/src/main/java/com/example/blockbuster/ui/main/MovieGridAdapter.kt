@@ -16,7 +16,7 @@ import com.example.blockbuster.network.Movie
 class MovieGridAdapter : ListAdapter<Movie, MovieGridAdapter.MovieViewHolder>(DiffCallBack) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return MovieViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent?.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
