@@ -19,13 +19,14 @@
                 android:layout_height="172dp"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
-                tools:src="@tools:sample/backgrounds/scenic"
-                android:contentDescription="@string/movie_poster" />
+                android:contentDescription="@string/movie_poster"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
             <TextView
                 android:id="@+id/movie_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/movie_name"/>
+                android:text="@string/movie_name" />
 
         </LinearLayout>
 

@@ -13,6 +13,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#00184C"
         tools:context=".ui.main.MainFragment">
 
         <TextView
@@ -21,8 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:textAppearance="?attr/textAppearanceHeadline6"
             android:text="@string/popular_title"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="#FFFF72"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/popular_title" />
