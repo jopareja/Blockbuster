@@ -10,5 +10,5 @@ class GetPopularMoviesUseCase {
     //In this use case we need data related to Movies, so we call the MovieRepository
     private val repository = MovieRepository()
 
-    suspend operator fun invoke() : List<Movie>? = repository.getPopularMovies(1)
+    suspend operator fun invoke() : List<Movie> = repository.getPopularMovies(1)
 }

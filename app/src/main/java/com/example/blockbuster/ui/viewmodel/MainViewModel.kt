@@ -10,9 +10,6 @@ import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    private val _requestStatus = MutableLiveData<String>()
-    val requestStatus: LiveData<String> = _requestStatus
-
     private val _movies = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>> = _movies
 
@@ -20,12 +17,12 @@ class MainViewModel : ViewModel() {
     // Get Popular Movies Use Case
     var GetPopularMoviesUseCase = GetPopularMoviesUseCase()
 
-    fun secondUpdateMovies() {
+    fun updateMovies() {
         viewModelScope.launch {
             val result = GetPopularMoviesUseCase()
 
             if(!result.isNullOrEmpty()) {
-                _movies.value = result!!
+                _movies.value = result
             }
         }
     }

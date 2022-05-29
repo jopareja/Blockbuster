@@ -46,7 +46,7 @@ class MainFragment : Fragment() {
         // This is used so that the binding can observe LiveData updates
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.secondUpdateMovies()
+        viewModel.updateMovies()
     }
 
     private fun initRecyclerView() {
