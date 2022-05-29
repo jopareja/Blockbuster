@@ -25,7 +25,7 @@ class MainFragment : Fragment() {
 
     private lateinit var recyclerViewLayoutMgr : GridLayoutManager
 
-    private var popularMoviesPage = 1
+    //private var popularMoviesPage = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
         recyclerViewLayoutMgr = binding.photosGrid.layoutManager as GridLayoutManager
 
         initRecyclerView()
-        recyclerViewOnScrollListener()
+        //recyclerViewOnScrollListener()
         return binding.root
     }
 
@@ -45,24 +45,26 @@ class MainFragment : Fragment() {
         binding.viewModel = viewModel
         // This is used so that the binding can observe LiveData updates
         binding.lifecycleOwner = viewLifecycleOwner
+
+        viewModel.secondUpdateMovies()
     }
 
     private fun initRecyclerView() {
         binding.photosGrid.adapter = MovieGridAdapter()
     }
 
-    private fun recyclerViewOnScrollListener() {
-        binding.photosGrid.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                val lastVisibleItem = recyclerViewLayoutMgr.findLastCompletelyVisibleItemPosition() + 1
+    //private fun recyclerViewOnScrollListener() {
+        //binding.photosGrid.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            //override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                //val lastVisibleItem = recyclerViewLayoutMgr.findLastCompletelyVisibleItemPosition() + 1
 
-                if (lastVisibleItem >= 19) {
-                    binding.photosGrid.removeOnScrollListener(this)
-                    popularMoviesPage++
-                    viewModel.updateMovies(popularMoviesPage)
-                    binding.photosGrid.addOnScrollListener(this)
-                }
-            }
-        })
-    }
+                //if (lastVisibleItem >= 19) {
+                    //binding.photosGrid.removeOnScrollListener(this)
+                    //popularMoviesPage++
+                    //viewModel.updateMovies(popularMoviesPage)
+                    //binding.photosGrid.addOnScrollListener(this)
+                //}
+            //}
+        //})
+    //}
 }
