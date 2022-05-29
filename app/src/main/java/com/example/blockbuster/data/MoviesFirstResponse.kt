@@ -1,4 +1,4 @@
-package com.example.blockbuster.network
+package com.example.blockbuster.data
 
 
 data class MoviesFirstResponse(

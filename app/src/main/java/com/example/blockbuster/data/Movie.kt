@@ -1,4 +1,4 @@
-package com.example.blockbuster.network
+package com.example.blockbuster.data
 
 import com.squareup.moshi.Json
 
