@@ -1,4 +1,4 @@
-package com.example.blockbuster.ui.main
+package com.example.blockbuster.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,12 +11,13 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.example.blockbuster.R
 import com.example.blockbuster.databinding.GridViewItemBinding
 import com.example.blockbuster.network.Movie
+import com.example.blockbuster.ui.view.MainFragmentDirections
 
 
 class MovieGridAdapter : ListAdapter<Movie, MovieGridAdapter.MovieViewHolder>(DiffCallBack) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent?.context), parent, false))
+        return MovieViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {

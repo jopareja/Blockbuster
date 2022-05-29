@@ -1,4 +1,4 @@
-package com.example.blockbuster.ui.main
+package com.example.blockbuster.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -58,7 +58,9 @@ class MovieDetailFragment : Fragment() {
 
             binding.movieTitle.text = it.getString(TITLE)
             binding.movieDate.text = it.getString(DATE)
-            binding.moviePopularity.text = getString(R.string.rating, String.format("%.2f", it.getFloat(RATING)))
+            binding.moviePopularity.text = getString(R.string.rating, String.format("%.2f", it.getFloat(
+                RATING
+            )))
             binding.movieOverview.text = it.getString(OVERVIEW)
         }
     }

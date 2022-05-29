@@ -1,4 +1,4 @@
-package com.example.blockbuster.ui.main
+package com.example.blockbuster.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

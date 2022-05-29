@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.blockbuster.ui.main.MainViewModel"/>
+            type="com.example.blockbuster.ui.viewmodel.MainViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#00184C"
-        tools:context=".ui.main.MainFragment">
+        tools:context=".ui.view.MainFragment">
 
         <TextView
             android:id="@+id/popular_movies_title"

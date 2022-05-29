@@ -31,3 +31,21 @@ interface ApiService {
 object Api {
     val retrofitService : ApiService by lazy { retrofit.create(ApiService::class.java) }
 }
+
+//Domain Service - Capa Intermedia: #Servicio que invoca al retrofit.
+//Domain Service - Capa Intermedia: #Mapea a data class que va a utilizar el ViewModel
+//Utilizo esto, en caso de que la respuesta de la Api se modifique, y no me rompa el codigo
+//
+//class MovieService {
+
+    //suspend fun getPopularMovies() : List<Movie2>{
+        //return Api.retrofitService.getPopularMovies(0).body()?.results?.map { it.toMovie2() } ?: emptyList()
+    //}
+//}
+// La que va a traer el ViewModel
+//data class Movie2(val id: Long,
+                 //val title: String,
+                 //val overview: String)
+
+
+//fun Movie.toMovie2() = Movie2(id,title,overview)

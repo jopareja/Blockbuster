@@ -1,4 +1,4 @@
-package com.example.blockbuster.ui.main
+package com.example.blockbuster.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.blockbuster.R
 import com.example.blockbuster.databinding.MainFragmentBinding
+import com.example.blockbuster.ui.adapters.MovieGridAdapter
+import com.example.blockbuster.ui.viewmodel.MainViewModel
 
 
 class MainFragment : Fragment() {

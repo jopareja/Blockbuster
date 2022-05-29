@@ -1,11 +1,11 @@
-package com.example.blockbuster
+package com.example.blockbuster.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.blockbuster.ui.main.MainFragment
+import com.example.blockbuster.R
 
 class MainActivity : AppCompatActivity() {
 

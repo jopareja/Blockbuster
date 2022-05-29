@@ -4,7 +4,7 @@ package com.example.blockbuster
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.blockbuster.network.Movie
-import com.example.blockbuster.ui.main.MovieGridAdapter
+import com.example.blockbuster.ui.adapters.MovieGridAdapter
 
 
 @BindingAdapter("listData")
