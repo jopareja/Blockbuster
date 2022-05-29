@@ -17,7 +17,6 @@ class MainViewModel : ViewModel() {
     val movies: LiveData<List<Movie>> = _movies
 
 
-
     // Get Popular Movies Use Case
     var GetPopularMoviesUseCase = GetPopularMoviesUseCase()
 
@@ -31,19 +30,4 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    // Update List of Movies with Retrofit's getPopularMovies Information
-    //fun updateMovies(noPage : Int) {
-        //Launching Coroutine
-        //viewModelScope.launch {
-            //val popularMovieRequest = Api.retrofitService.getPopularMovies(noPage)
-            //try {
-                //val popularMovieResponse = popularMovieRequest.body()
-                //val popularMovies = popularMovieResponse?.results
-                //_movies.value = popularMovies!!
-                //_requestStatus.value = "Success"
-            //} catch (e:Exception) {
-                //_requestStatus.value = "Failure"
-            //}
-        //}
-    //}
 }
