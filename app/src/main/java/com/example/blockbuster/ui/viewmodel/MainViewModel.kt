@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.blockbuster.data.Api
 import com.example.blockbuster.data.Movie
 import com.example.blockbuster.domain.GetPopularMoviesUseCase
 import kotlinx.coroutines.launch
