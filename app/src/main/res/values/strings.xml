@@ -7,5 +7,6 @@
     <string name="star_logo">Star Logo</string>
     <string name="rating">Rating: %s</string>
     <string name="action_search_layout">Search Layout</string>
+    <string name="network_error">Check your Connection!</string>
     <string name="tools_overview">The film follows Homer Simpson, who irresponsibly pollutes the lake in Springfield, causing the Environmental Protection Agency (EPA) to imprison the town under a giant glass dome</string>
 </resources>

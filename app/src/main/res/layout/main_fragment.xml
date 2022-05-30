@@ -16,6 +16,20 @@
         android:background="#00184C"
         tools:context=".ui.view.MainFragment">
 
+        <TextView
+            android:id="@+id/connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:visibility="gone"
+            android:text="@string/network_error"
+            app:apiConnectionStatus="@{viewModel.status}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/network_error" />
+
         <ProgressBar
             android:id="@+id/progress"
             android:layout_width="wrap_content"
@@ -24,7 +38,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:apiStatus="@{viewModel.status}"/>
 
         <TextView
             android:id="@+id/popular_movies_title"
