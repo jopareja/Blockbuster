@@ -13,16 +13,22 @@ class MainViewModel : ViewModel() {
     private val _movies = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>> = _movies
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
     // Get Popular Movies Use Case
-    var GetPopularMoviesUseCase = GetPopularMoviesUseCase()
+    var getPopularMoviesUseCase = GetPopularMoviesUseCase()
 
     fun updateMovies() {
         viewModelScope.launch {
-            val result = GetPopularMoviesUseCase()
-
-            if(!result.isNullOrEmpty()) {
+            try {
+                _isLoading.value = true
+                val result = getPopularMoviesUseCase()
+                _isLoading.value = false
                 _movies.value = result
+            } catch (e:Exception) {
+                _isLoading.value = true
+                _movies.value = emptyList()
             }
         }
     }

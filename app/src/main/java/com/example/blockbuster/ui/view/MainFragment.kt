@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
@@ -33,6 +34,7 @@ class MainFragment : Fragment() {
         _binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
         recyclerViewLayoutMgr = binding.photosGrid.layoutManager as GridLayoutManager
 
+
         initRecyclerView()
         //recyclerViewOnScrollListener()
         return binding.root
@@ -47,7 +49,10 @@ class MainFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
         viewModel.updateMovies()
+        viewModel.isLoading.observe(viewLifecycleOwner){ binding.progress.isVisible = it }
     }
+
+
 
     private fun initRecyclerView() {
         binding.photosGrid.adapter = MovieGridAdapter()
