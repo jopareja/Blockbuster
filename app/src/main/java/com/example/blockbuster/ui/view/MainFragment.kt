@@ -1,15 +1,13 @@
 package com.example.blockbuster.ui.view
 
 import android.os.Bundle
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.blockbuster.R
 import com.example.blockbuster.databinding.MainFragmentBinding
 import com.example.blockbuster.ui.adapters.MovieGridAdapter
@@ -25,8 +23,13 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var recyclerViewLayoutMgr : GridLayoutManager
+    /**private var popularMoviesPage = 1 */
 
-    //private var popularMoviesPage = 1
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
@@ -36,7 +39,7 @@ class MainFragment : Fragment() {
 
 
         initRecyclerView()
-        //recyclerViewOnScrollListener()
+        /**recyclerViewOnScrollListener()*/
         return binding.root
     }
 
@@ -52,24 +55,42 @@ class MainFragment : Fragment() {
         viewModel.isLoading.observe(viewLifecycleOwner){ binding.progress.isVisible = it }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_menu, menu)
+        val item = menu.findItem(R.id.app_bar_search)
+        val searchIcon = item.actionView as SearchView
+        searchIcon.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
 
+                if (!newText.isNullOrEmpty()) {
+                    viewModel.filterMovies(newText)
+                } else viewModel.updateMovies()
+                return false
+            }
+        })
+    }
 
     private fun initRecyclerView() {
         binding.photosGrid.adapter = MovieGridAdapter()
     }
 
-    //private fun recyclerViewOnScrollListener() {
-        //binding.photosGrid.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            //override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                //val lastVisibleItem = recyclerViewLayoutMgr.findLastCompletelyVisibleItemPosition() + 1
+    /**
+    private fun recyclerViewOnScrollListener() {
+        binding.photosGrid.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val lastVisibleItem = recyclerViewLayoutMgr.findLastCompletelyVisibleItemPosition() + 1
 
-                //if (lastVisibleItem >= 19) {
-                    //binding.photosGrid.removeOnScrollListener(this)
-                    //popularMoviesPage++
-                    //viewModel.updateMovies(popularMoviesPage)
-                    //binding.photosGrid.addOnScrollListener(this)
-                //}
-            //}
-        //})
-    //}
+                if (lastVisibleItem >= 19) {
+                    binding.photosGrid.removeOnScrollListener(this)
+                    popularMoviesPage++
+                    viewModel.updateMovies(popularMoviesPage)
+                    binding.photosGrid.addOnScrollListener(this)
+                }
+            }
+        })
+    }
+    */
 }

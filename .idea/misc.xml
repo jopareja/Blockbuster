@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3455" />
+        <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.3665" />
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3455" />
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3555" />
+        <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.3665" />
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/drawable/splash_screen.xml" value="0.33" />
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/layout-land/movie_detail_fragment.xml" value="0.30952380952380953" />
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/layout/grid_view_item.xml" value="0.33" />
@@ -13,6 +15,7 @@
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/layout/main_fragment.xml" value="0.25" />
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/layout/main_menu.xml" value="0.15744535519125682" />
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/layout/movie_detail_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/menu/main_menu.xml" value="0.23092105263157894" />
         <entry key="..\:/Users/josei/AndroidStudioProjects/Blockbuster/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3555" />
       </map>
     </option>
