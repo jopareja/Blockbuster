@@ -34,7 +34,7 @@ class MainViewModel : ViewModel() {
     }
 
     fun filterMovies(someText: String?) {
-        _movies.value = _movies.value?.filter { it.title.contains(someText!!) }
+        _movies.value = _movies.value?.filter { it.title.uppercase().contains(someText!!.uppercase()) }
     }
 
 }
