@@ -1,6 +1,7 @@
 package com.example.blockbuster.ui.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -36,21 +37,22 @@ class MainFragment : Fragment() {
         _binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
         recyclerViewLayoutMgr = binding.photosGrid.layoutManager as GridLayoutManager
 
-
         initRecyclerView()
-        /**recyclerViewOnScrollListener()*/
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         // this allows the bound layout access to all the data in the VieWModel
         binding.viewModel = viewModel
         // This is used so that the binding can observe LiveData updates
         binding.lifecycleOwner = viewLifecycleOwner
+    }
 
+    override fun onStart() {
+        super.onStart()
         viewModel.updateMovies()
+        /**recyclerViewOnScrollListener()*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
