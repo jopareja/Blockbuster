@@ -1,14 +1,15 @@
 package com.example.blockbuster.data.network
 
-import com.example.blockbuster.data.Movie
+import com.example.blockbuster.data.repositories.RemoteInterfacer
+import com.example.blockbuster.domain.entities.Movie
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-// Service that will get called by the MovieRepository. This will call TheMovieDataBaseApiClient
-class RetrofitService {
+// Service that will get called by the MovieRepository. This will call ApiService
+class RetrofitClient : RemoteInterfacer {
 
     private val baseUrl = "https://api.themoviedb.org/3/"
 
@@ -17,10 +18,10 @@ class RetrofitService {
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi)).baseUrl(baseUrl).build()
 
-    suspend fun getMovies(noPage : Int) : List<Movie> {
+    override suspend fun getPopularMovies(pageNumber : Int) : List<Movie> {
 
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(MoviesApiClient::class.java).getPopularMovies(page = noPage)
+            val response = retrofit.create(APIService::class.java).fetchMovies(page = pageNumber)
             response.body()?.results ?: emptyList()
         }
 

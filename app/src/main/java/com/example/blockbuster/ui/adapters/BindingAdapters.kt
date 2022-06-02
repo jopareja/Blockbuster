@@ -6,7 +6,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.blockbuster.data.Movie
+import com.example.blockbuster.domain.entities.Movie
 import com.example.blockbuster.ui.adapters.MovieGridAdapter
 import com.example.blockbuster.ui.viewmodel.ApiStatus
 

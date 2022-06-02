@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.blockbuster.data.Movie
-import com.example.blockbuster.domain.GetPopularMoviesUseCase
+import com.example.blockbuster.data.network.RetrofitClient
+import com.example.blockbuster.data.repositories.MovieRepository
+import com.example.blockbuster.domain.entities.Movie
+import com.example.blockbuster.domain.usecases.GetPopularMoviesUseCase
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -17,14 +19,13 @@ class MainViewModel : ViewModel() {
     val status: LiveData<ApiStatus> = _status
 
     // Get Popular Movies Use Case
-    var getPopularMoviesUseCase = GetPopularMoviesUseCase()
+    private val getPopularMoviesUseCase = GetPopularMoviesUseCase(MovieRepository(RetrofitClient()))
 
     fun updateMovies() {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
             try {
-                val result = getPopularMoviesUseCase()
-                _movies.value = result
+                _movies.value = getPopularMoviesUseCase.invoke()
                 _status.value = ApiStatus.DONE
             } catch (e:Exception) {
                 _status.value = ApiStatus.ERROR

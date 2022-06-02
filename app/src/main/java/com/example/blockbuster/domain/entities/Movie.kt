@@ -1,4 +1,4 @@
-package com.example.blockbuster.data
+package com.example.blockbuster.domain.entities
 
 import com.squareup.moshi.Json
 

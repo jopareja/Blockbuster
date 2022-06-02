@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.example.blockbuster.R
 import com.example.blockbuster.databinding.GridViewItemBinding
-import com.example.blockbuster.data.Movie
+import com.example.blockbuster.domain.entities.Movie
 import com.example.blockbuster.ui.view.MainFragmentDirections
 
 
