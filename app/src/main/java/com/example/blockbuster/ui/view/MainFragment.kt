@@ -12,8 +12,9 @@ import com.example.blockbuster.R
 import com.example.blockbuster.databinding.MainFragmentBinding
 import com.example.blockbuster.ui.adapters.MovieGridAdapter
 import com.example.blockbuster.ui.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainFragment : Fragment() {
 
     //Connect our UI Fragment with our UI Data Holder

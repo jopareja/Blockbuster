@@ -8,20 +8,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Inject
+
 // Service that will get called by the MovieRepository. This will call ApiService
-class RetrofitClient : RemoteInterfacer {
+class RetrofitClient @Inject constructor(private val api: APIService) : RemoteInterfacer {
 
-    private val baseUrl = "https://api.themoviedb.org/3/"
 
-    private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-
-    private val retrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create(moshi)).baseUrl(baseUrl).build()
 
     override suspend fun getPopularMovies(pageNumber : Int) : List<Movie> {
 
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(APIService::class.java).fetchMovies(page = pageNumber)
+            val response = api.fetchMovies(page = pageNumber)
             response.body()?.results ?: emptyList()
         }
 

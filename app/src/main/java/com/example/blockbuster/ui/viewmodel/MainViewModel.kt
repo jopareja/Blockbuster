@@ -8,9 +8,14 @@ import com.example.blockbuster.data.network.RetrofitClient
 import com.example.blockbuster.data.repositories.MovieRepository
 import com.example.blockbuster.domain.entities.Movie
 import com.example.blockbuster.domain.usecases.GetPopularMoviesUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val getPopularMoviesUseCase: GetPopularMoviesUseCase
+) : ViewModel() {
 
     private val _movies = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>> = _movies
@@ -19,7 +24,7 @@ class MainViewModel : ViewModel() {
     val status: LiveData<ApiStatus> = _status
 
     // Get Popular Movies Use Case
-    private val getPopularMoviesUseCase = GetPopularMoviesUseCase(MovieRepository(RetrofitClient()))
+    //private val getPopularMoviesUseCase = GetPopularMoviesUseCase(MovieRepository(RetrofitClient()))
 
     fun updateMovies() {
         viewModelScope.launch {
