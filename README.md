@@ -12,7 +12,8 @@ Retrofit and Moshi are used to communicate with TheMovieDatabaseApi.
 
 Glide library is used to load Images, and ListAdaptes is used as RecyclerView.
 
-
+## Overview
+![BlockbusterREADME](https://user-images.githubusercontent.com/97983772/171907954-e27785a7-5f6d-4075-8667-08e326f938f6.png)
 
 
 
