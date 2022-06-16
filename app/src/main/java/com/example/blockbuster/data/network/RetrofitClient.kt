@@ -1,26 +1,21 @@
 package com.example.blockbuster.data.network
 
-import com.example.blockbuster.data.repositories.RemoteInterfacer
+import com.example.blockbuster.data.repositories.RemoteProvider
 import com.example.blockbuster.domain.entities.Movie
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Inject
 
-// Service that will get called by the MovieRepository. This will call ApiService
-class RetrofitClient @Inject constructor(private val api: APIService) : RemoteInterfacer {
-
-
+// Service that will get called by the MovieRepository. This will call an API
+class RetrofitClient @Inject constructor(private val api: APIService) : RemoteProvider {
 
     override suspend fun getPopularMovies(pageNumber : Int) : List<Movie> {
 
         return withContext(Dispatchers.IO) {
+            // response holds the data fetched from the api
             val response = api.fetchMovies(page = pageNumber)
+            // However we need a List of Movies, so we return the results if fetch was not null
             response.body()?.results ?: emptyList()
         }
-
     }
 }

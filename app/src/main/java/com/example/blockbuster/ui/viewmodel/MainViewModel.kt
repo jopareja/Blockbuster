@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.blockbuster.data.network.RetrofitClient
-import com.example.blockbuster.data.repositories.MovieRepository
 import com.example.blockbuster.domain.entities.Movie
 import com.example.blockbuster.domain.usecases.GetPopularMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,8 +21,6 @@ class MainViewModel @Inject constructor(
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus> = _status
 
-    // Get Popular Movies Use Case
-    //private val getPopularMoviesUseCase = GetPopularMoviesUseCase(MovieRepository(RetrofitClient()))
 
     fun updateMovies() {
         viewModelScope.launch {
