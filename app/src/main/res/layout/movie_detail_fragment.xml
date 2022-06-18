@@ -100,6 +100,18 @@
         app:layout_constraintTop_toBottomOf="@id/movie_popularity"
         tools:text="@string/tools_overview" />
 
+    <Button
+        android:id="@+id/rateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_button"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/movie_overview"
+        style="?attr/materialButtonOutlinedStyle"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

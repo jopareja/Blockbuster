@@ -34,6 +34,9 @@ class MovieDetailFragment : Fragment() {
             R.layout.movie_detail_fragment, container, false)
 
         drawMovieDetails()
+        binding.rateButton.setOnClickListener {
+            // viewModel job
+        }
 
         return binding.root
     }
