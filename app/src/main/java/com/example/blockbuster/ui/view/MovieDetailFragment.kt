@@ -6,13 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.example.blockbuster.R
 import com.example.blockbuster.databinding.MovieDetailFragmentBinding
+import com.example.blockbuster.ui.viewmodel.MovieDetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MovieDetailFragment : Fragment() {
+
+    private val viewModel: MovieDetailViewModel by viewModels()
 
     companion object {
         const val BACKDROP = "backdrop"
@@ -39,6 +44,12 @@ class MovieDetailFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
     }
 
     private fun drawMovieDetails() {
