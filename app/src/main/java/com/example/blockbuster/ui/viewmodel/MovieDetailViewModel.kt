@@ -4,13 +4,17 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.blockbuster.domain.entities.UserRatingRequest
+import com.example.blockbuster.domain.usecases.RateMovieUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MovieDetailViewModel: ViewModel() {
+@HiltViewModel
+class MovieDetailViewModel @Inject constructor(private val useCase: RateMovieUseCase): ViewModel() {
 
     fun registerRating(userInput: UserRatingRequest) {
         viewModelScope.launch {
-            Log.d("Jose", userInput.toString())
+            val rateApiResponse = useCase.rateMovie(userInput)
         }
     }
 }
