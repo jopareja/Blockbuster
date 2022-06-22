@@ -8,5 +8,5 @@ interface RemoteProvider {
 
     suspend fun getPopularMovies(pageNumber: Int) : List<Movie>
 
-    suspend fun postMovieRating(userInput: UserRatingRequest) : RatingResponse
+    suspend fun postMovieRating(userInput: UserRatingRequest) : RatingResponse?
 }

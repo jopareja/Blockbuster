@@ -2,6 +2,7 @@ package com.example.blockbuster.data.network
 
 import com.example.blockbuster.domain.entities.MoviesFirstResponse
 import com.example.blockbuster.domain.entities.RatingResponse
+import com.example.blockbuster.domain.entities.UserRatingRequest
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -13,6 +14,6 @@ interface APIService {
 
     @POST("movie/{movie_id}/rating")
     @Headers("Content-Type:application/json;charset=utf-8")
-    suspend fun rateMovie(@Path("movie_id") movieId: Int, @Body requestBody: RatingResponse)
-    : Response<ResponseBody>
+    suspend fun rateMovie(@Path("movie_id") movieId: Int, @Body requestBody: UserRatingRequest)
+    : Response<RatingResponse>
 }

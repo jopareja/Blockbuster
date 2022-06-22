@@ -2,6 +2,8 @@ package com.example.blockbuster.data.network
 
 import com.example.blockbuster.data.repositories.RemoteProvider
 import com.example.blockbuster.domain.entities.Movie
+import com.example.blockbuster.domain.entities.RatingResponse
+import com.example.blockbuster.domain.entities.UserRatingRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -16,6 +18,14 @@ class RetrofitClient @Inject constructor(private val api: APIService) : RemotePr
             val response = api.fetchMovies(page = pageNumber)
             // However we need a List of Movies, so we return the results if fetch was not null
             response.body()?.results ?: emptyList()
+        }
+    }
+
+    override suspend fun postMovieRating(userInput: UserRatingRequest): RatingResponse? {
+
+        return withContext(Dispatchers.IO) {
+            val response = api.rateMovie(1,userInput)
+            response.body()
         }
     }
 }
