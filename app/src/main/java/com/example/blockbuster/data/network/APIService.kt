@@ -12,6 +12,7 @@ interface APIService {
     suspend fun fetchMovies(@Query("page") page: Int): Response<MoviesFirstResponse>
 
     @POST("movie/{movie_id}/rating")
+    @Headers("Content-Type:application/json;charset=utf-8")
     suspend fun rateMovie(@Path("movie_id") movieId: Int, @Body requestBody: RatingResponse)
     : Response<ResponseBody>
 }
