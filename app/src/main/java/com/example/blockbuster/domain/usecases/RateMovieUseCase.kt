@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class RateMovieUseCase @Inject constructor(private val repository: MovieRepository) {
 
-    suspend fun rateMovie(userInput: UserRatingRequest) : RatingResponse {
-        return repository.rateMovie(userInput)
+    suspend fun rateMovie(movieId: Int, userInput: UserRatingRequest) : RatingResponse? {
+        return repository.rateMovie(movieId, userInput)
     }
 }

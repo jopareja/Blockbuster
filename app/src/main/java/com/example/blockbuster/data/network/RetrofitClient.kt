@@ -21,7 +21,7 @@ class RetrofitClient @Inject constructor(private val api: APIService) : RemotePr
         }
     }
 
-    override suspend fun postMovieRating(userInput: UserRatingRequest): RatingResponse? {
+    override suspend fun postMovieRating(movieId: Int, userInput: UserRatingRequest): RatingResponse? {
 
         return withContext(Dispatchers.IO) {
             val response = api.rateMovie(1,userInput)

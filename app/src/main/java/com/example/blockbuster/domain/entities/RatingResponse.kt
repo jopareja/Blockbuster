@@ -1,8 +1,8 @@
 package com.example.blockbuster.domain.entities
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 data class RatingResponse(
-    @Json(name = "status_code") val statusCode: Int,
-    @Json(name = "status_message") val statusMessage: String
+    @SerializedName("status_code") val statusCode: Int,
+    @SerializedName("status_message") val statusMessage: String
 )

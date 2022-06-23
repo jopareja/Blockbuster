@@ -13,7 +13,7 @@ class MovieRepository @Inject constructor(private val dataProvider: RemoteProvid
         return dataProvider.getPopularMovies(pageNumber)
     }
 
-    suspend fun rateMovie(userInput: UserRatingRequest) : RatingResponse {
-        return dataProvider.postMovieRating(userInput)
+    suspend fun rateMovie(movieId: Int, userInput: UserRatingRequest) : RatingResponse? {
+        return dataProvider.postMovieRating(movieId, userInput)
     }
 }

@@ -29,6 +29,7 @@ class MovieDetailFragment : Fragment() {
         const val DATE = "date"
         const val RATING = "rating"
         const val OVERVIEW = "overview"
+        const val MOVIE_ID = "movieid"
     }
 
     private val viewModel: MovieDetailViewModel by viewModels()
@@ -90,7 +91,8 @@ class MovieDetailFragment : Fragment() {
                     dialog.cancel()
                 }
                 .setPositiveButton(resources.getString(R.string.rate_ok)) { _, _ ->
-                    viewModel.registerRating(userInput)
+                    arguments?.getInt(MOVIE_ID)
+                        ?.let { it1 -> viewModel.registerRating(it1, userInput) }
                 }
                 .setSingleChoiceItems(singleItems, -1) { _, which ->
                     userInput = UserRatingRequest(which)

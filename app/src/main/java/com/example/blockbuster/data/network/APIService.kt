@@ -3,7 +3,6 @@ package com.example.blockbuster.data.network
 import com.example.blockbuster.domain.entities.MoviesFirstResponse
 import com.example.blockbuster.domain.entities.RatingResponse
 import com.example.blockbuster.domain.entities.UserRatingRequest
-import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
 

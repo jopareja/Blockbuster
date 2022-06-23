@@ -11,9 +11,9 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieDetailViewModel @Inject constructor(private val useCase: RateMovieUseCase): ViewModel() {
 
-    fun registerRating(userInput: UserRatingRequest) {
+    fun registerRating(movieId: Int, userInput: UserRatingRequest) {
         viewModelScope.launch {
-            val rateApiResponse = useCase.rateMovie(userInput)
+            val rateApiResponse = useCase.rateMovie(movieId, userInput)
         }
     }
 }

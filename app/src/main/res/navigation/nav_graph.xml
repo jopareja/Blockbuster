@@ -36,5 +36,8 @@
         <argument
             android:name="overview"
             app:argType="string" />
+        <argument
+            android:name="movieid"
+            app:argType="integer" />
     </fragment>
 </navigation>

@@ -3,14 +3,12 @@ package com.example.blockbuster.di
 import com.example.blockbuster.data.network.APIService
 import com.example.blockbuster.data.network.RetrofitClient
 import com.example.blockbuster.data.repositories.RemoteProvider
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 //In charge of providing libraries and/or classes that implement interfaces
 @Module
@@ -22,10 +20,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofit() : Retrofit {
         return Retrofit.Builder()
-            .addConverterFactory(MoshiConverterFactory.create(
-                Moshi.Builder().add(
-                    KotlinJsonAdapterFactory()
-                ).build()))
+            .addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://api.themoviedb.org/3/")
             .build()
     }
