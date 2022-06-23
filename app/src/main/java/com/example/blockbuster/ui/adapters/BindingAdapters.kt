@@ -1,4 +1,4 @@
-package com.example.blockbuster
+package com.example.blockbuster.ui.adapters
 
 
 import android.view.View

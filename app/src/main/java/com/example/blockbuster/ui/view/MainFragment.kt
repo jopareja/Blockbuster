@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
-    //Connect our UI Fragment with our UI Data Holder
     private val viewModel: MainViewModel by viewModels()
 
     private var  _binding: MainFragmentBinding? = null
