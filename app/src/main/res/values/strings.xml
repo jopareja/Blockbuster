@@ -12,5 +12,9 @@
     <string name="rate_title">Insert a rating:</string>
     <string name="rate_cancel">Cancel</string>
     <string name="rate_ok">Accept</string>
+    <string name="snack_ioexception">Error: an IOException occurred.</string>
+    <string name="snack_http401">Error: Invalid API key: You must be granted a valid key.</string>
+    <string name="snack_http404">Error: The resource you requested could not be found.</string>
+    <string name="snack_generic">An error occurred, rating was not posted.</string>
     <string name="tools_overview">The film follows Homer Simpson, who irresponsibly pollutes the lake in Springfield, causing the Environmental Protection Agency (EPA) to imprison the town under a giant glass dome</string>
 </resources>

@@ -15,6 +15,7 @@ import com.example.blockbuster.domain.entities.UserRatingRequest
 import com.example.blockbuster.ui.viewmodel.MovieDetailViewModel
 import com.example.blockbuster.ui.viewmodel.RatingStatus
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -90,7 +91,9 @@ class MovieDetailFragment : Fragment() {
                 }
                 .setPositiveButton(resources.getString(R.string.rate_ok)) { _, _ ->
                     arguments?.getInt(MOVIE_ID)
-                        ?.let { it1 -> viewModel.registerRating(it1, userInput) }
+                        ?.let { it1 ->
+                            viewModel.registerRating(it1, userInput)
+                            showSnackBar()}
                 }
                 .setSingleChoiceItems(singleItems, -1) { _, which ->
                     userInput = UserRatingRequest(which)
@@ -100,13 +103,15 @@ class MovieDetailFragment : Fragment() {
     }
 
     private fun showSnackBar() {
+        var snackBarMessage: String
         viewModel.rateStatus.observe(viewLifecycleOwner) {
-            when (it) {
-                RatingStatus.GenericError -> TODO()
-                RatingStatus.HTTP401 -> TODO()
-                RatingStatus.HTTP404 -> TODO()
-                RatingStatus.IOException -> TODO()
+            snackBarMessage = when (it) {
+                RatingStatus.GenericError -> getString(R.string.snack_generic)
+                RatingStatus.HTTP401 -> getString(R.string.snack_http401)
+                RatingStatus.HTTP404 -> getString(R.string.snack_http404)
+                RatingStatus.IOException -> getString(R.string.snack_ioexception)
             }
+            view?.let { it1 -> Snackbar.make(it1, snackBarMessage, Snackbar.LENGTH_LONG).show() }
         }
     }
 }
