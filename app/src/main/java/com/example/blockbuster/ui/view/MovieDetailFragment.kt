@@ -1,23 +1,21 @@
 package com.example.blockbuster.ui.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.example.blockbuster.R
 import com.example.blockbuster.databinding.MovieDetailFragmentBinding
 import com.example.blockbuster.domain.entities.UserRatingRequest
 import com.example.blockbuster.ui.viewmodel.MovieDetailViewModel
+import com.example.blockbuster.ui.viewmodel.RatingStatus
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.NonCancellable.cancel
 
 @AndroidEntryPoint
 class MovieDetailFragment : Fragment() {
@@ -98,6 +96,17 @@ class MovieDetailFragment : Fragment() {
                     userInput = UserRatingRequest(which)
                 }
                 .show()
+        }
+    }
+
+    private fun showSnackBar() {
+        viewModel.rateStatus.observe(viewLifecycleOwner) {
+            when (it) {
+                RatingStatus.GenericError -> TODO()
+                RatingStatus.HTTP401 -> TODO()
+                RatingStatus.HTTP404 -> TODO()
+                RatingStatus.IOException -> TODO()
+            }
         }
     }
 }
