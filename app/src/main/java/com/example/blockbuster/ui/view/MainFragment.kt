@@ -18,13 +18,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private val viewModel: MainViewModel by viewModels()
-
     private var  _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var recyclerViewLayoutMgr : GridLayoutManager
-    /**private var popularMoviesPage = 1 */
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +48,6 @@ class MainFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         viewModel.updateMovies()
-        /**recyclerViewOnScrollListener()*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -77,20 +72,4 @@ class MainFragment : Fragment() {
         binding.photosGrid.adapter = MovieGridAdapter()
     }
 
-    /**
-    private fun recyclerViewOnScrollListener() {
-        binding.photosGrid.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                val lastVisibleItem = recyclerViewLayoutMgr.findLastCompletelyVisibleItemPosition() + 1
-
-                if (lastVisibleItem >= 19) {
-                    binding.photosGrid.removeOnScrollListener(this)
-                    popularMoviesPage++
-                    viewModel.updateMovies(popularMoviesPage)
-                    binding.photosGrid.addOnScrollListener(this)
-                }
-            }
-        })
-    }
-    */
 }
