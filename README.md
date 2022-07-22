@@ -12,7 +12,8 @@ Retrofit and Gson are used to communicate with TheMovieDatabaseApi.
 Glide library is used to load Images, and  Dependencies were injected with HILT-Dagger
 
 ## Overview
-![BlockbusterREADME](https://user-images.githubusercontent.com/97983772/171907954-e27785a7-5f6d-4075-8667-08e326f938f6.png)
+![blockbustertemplate](https://user-images.githubusercontent.com/97983772/180516916-8a92dc88-f5de-49ad-9e2a-a76ddc165587.png)
+
 
 
 
