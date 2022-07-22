@@ -4,8 +4,8 @@ buildscript {
         // Versions for all the dependencies we plan to use. It's particularly useful for kotlin
         // where the versions of the plugin needs to be the same as the version of the
         // library defined in the app Gradle file
-        kotlin_version = "1.5.31"
-        nav_version = "2.4.2"
+        kotlin_version = "1.7.0"
+        nav_version = "2.5.0"
     }
     repositories {
         google()
@@ -15,7 +15,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:7.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
-        classpath('com.google.dagger:hilt-android-gradle-plugin:2.40.1')
+        classpath('com.google.dagger:hilt-android-gradle-plugin:2.42')
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

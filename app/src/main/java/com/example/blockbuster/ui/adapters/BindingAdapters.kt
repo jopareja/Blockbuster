@@ -18,7 +18,7 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Movie>?) {
 }
 
 @BindingAdapter("apiStatus")
-fun bindProgress(statusProgressBar: ProgressBar, status: ApiStatus?) {
+fun bindProgress(statusProgressBar: ProgressBar, status: ApiStatus) {
 
     when (status) {
         ApiStatus.LOADING -> {
@@ -34,7 +34,7 @@ fun bindProgress(statusProgressBar: ProgressBar, status: ApiStatus?) {
 }
 
 @BindingAdapter("apiConnectionStatus")
-fun bindConnection(statusText: TextView, status: ApiStatus?) {
+fun bindConnection(statusText: TextView, status: ApiStatus) {
 
     when (status) {
         ApiStatus.LOADING -> {
